@@ -43,7 +43,7 @@ export default class TimeTableView extends Component {
             dateHeaderFormat,
             onEventPress,
             pivotTime,
-            mode,
+            labelColor,
         } = this.props;
         const events = assignColor(this.props.events);
         const { currentDate } = this.state;
