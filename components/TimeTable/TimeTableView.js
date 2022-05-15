@@ -68,10 +68,7 @@ export default class TimeTableView extends Component {
                                         style={[
                                             styles.timeText,
                                             {
-                                                color:
-                                                    mode === "dark"
-                                                        ? "white"
-                                                        : "black",
+                                                color: labelColor,
                                             },
                                         ]}
                                     >
@@ -109,7 +106,7 @@ TimeTableView.propTypes = {
     onEventPress: PropTypes.func,
     headerStyle: PropTypes.object,
     locale: PropTypes.string,
-    mode: PropTypes.string,
+    labelColor: PropTypes.string,
 };
 
 TimeTableView.defaultProps = {
@@ -119,5 +116,5 @@ TimeTableView.defaultProps = {
     pivotEndTime: 22,
     pivotDate: genTimeBlock("mon"),
     dateHeaderFormat: "dddd",
-    mode: "light",
+    mode: "black",
 };
