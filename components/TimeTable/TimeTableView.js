@@ -14,7 +14,6 @@ export default class TimeTableView extends Component {
             currentDate: props.pivotDate,
         };
         const { pivotTime, pivotEndTime } = this.props;
-        this.colorScheme = Appearance.getColorScheme();
         this.calendar = null;
         setLocale(props.locale);
         this.times = this.genTimes(pivotTime, pivotEndTime);
@@ -44,6 +43,7 @@ export default class TimeTableView extends Component {
             dateHeaderFormat,
             onEventPress,
             pivotTime,
+            mode,
         } = this.props;
         const events = assignColor(this.props.events);
         const { currentDate } = this.state;
@@ -69,7 +69,7 @@ export default class TimeTableView extends Component {
                                             styles.timeText,
                                             {
                                                 color:
-                                                    this.colorScheme === "dark"
+                                                    mode === "dark"
                                                         ? "white"
                                                         : "black",
                                             },
@@ -109,6 +109,7 @@ TimeTableView.propTypes = {
     onEventPress: PropTypes.func,
     headerStyle: PropTypes.object,
     locale: PropTypes.string,
+    mode: PropTypes.string,
 };
 
 TimeTableView.defaultProps = {
@@ -118,4 +119,5 @@ TimeTableView.defaultProps = {
     pivotEndTime: 22,
     pivotDate: genTimeBlock("mon"),
     dateHeaderFormat: "dddd",
+    mode: "light",
 };
